@@ -1,0 +1,20 @@
+name: 'Famoco MDM Apploader'
+description: 'Uploads an apk to the Famoco MDM'
+inputs:
+  name:  # id of input
+    description: 'name of the apk'
+    required: true
+    default: 'android.release.apk'
+  path:  # id of input
+    description: 'path to the apk'
+    required: true
+    default: 'app/build/outputs/release/apk'
+outputs:
+  time: # id of output
+    description: 'The time of execution'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.name }}
+    - ${{ inputs.path }}
