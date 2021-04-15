@@ -1,7 +1,9 @@
 # Container image that runs your code
-FROM python:3.7.10-alpine3.13
+FROM python:3.8-alpine3.13
 
 ENV PYTHONUNBUFFERED=1
+
+RUN pip install --upgrade pip setuptools wheel
 
 COPY . .
 
