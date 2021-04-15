@@ -8,14 +8,11 @@ const FAMOCO_API_TOKEN = 'KMWK65c8W8Hq3XSndC6KNkxjKxi7u8' // process.node.FAMOCO
 const FAMOCO_ORGANIZATION_ID = 2059 // process.node.FAMOCO_ORGANIZATION_ID
 
 try {
-    const name = core.getInput('name', {
-        required: true,
-    })
-    const path = core.getInput('path', {
+    const name = core.getInput('apk', {
         required: true,
     })
     const form = new FormData()
-    form.append('file', fs.createReadStream(`${path}/${name}`))
+    form.append('file', fs.createReadStream(apk))
     
     const formHeaders = form.getHeaders()
 
@@ -29,9 +26,15 @@ try {
         }
     )
     .then(resp => {
-        console.log(resp)
+        if (resp.statusText === 'OK') {
+            core.info(`*SUCCESS:* Version *${resp.data.package_version_name}* uploaded to MDM`)
+        } else {
+            core.setFailed(`*FAILED:* Upload to MDM Failed: *${resp.data.errors.apk[0]}`)
+        }
     })
-    .catch(err => err)
+    .catch(err => {
+        core.setFailed(err)
+    })
 } catch (error) {
     core.setFailed(error)
 }
