@@ -1,5 +1,6 @@
 name: 'Famoco MDM Apploader'
 description: 'Uploads an apk to the Famoco MDM'
+author: 'Sina Khelil'
 inputs:
   name:  # id of input
     description: 'name of the apk'
