@@ -1,0 +1,35 @@
+{
+  "name": "famoco-mdm-apploader-action",
+  "version": "1.3.0",
+  "description": "Famoco MDM app uploader",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagitar-co/famoco-mdm-apploader-action.git"
+  },
+  "keywords": [
+    "famoco",
+    "mdm",
+    "file",
+    "uploader"
+  ],
+  "author": "Sina Khelil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sagitar-co/famoco-mdm-apploader-action/issues"
+  },
+  "homepage": "https://github.com/sagitar-co/famoco-mdm-apploader-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "axios": "^0.21.1",
+    "form-data": "^4.0.0",
+    "fs": "0.0.1-security"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  }
+}

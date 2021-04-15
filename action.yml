@@ -14,8 +14,8 @@ outputs:
   time: # id of output
     description: 'The time of execution'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.name }}
-    - ${{ inputs.path }}
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'file-plus'
+  color: 'purple'
