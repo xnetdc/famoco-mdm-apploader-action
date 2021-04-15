@@ -1,7 +1,6 @@
 import os
 from argparse import ArgumentParser
 import requests
-from smart_open import open
 
 
 class Apk(object):
