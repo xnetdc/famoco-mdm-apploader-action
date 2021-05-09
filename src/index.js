@@ -4,8 +4,8 @@ const fs = require("fs")
 const FormData = require("form-data")
 
 const BASE_FAMOCO_URL = "https://my.famoco.com/api/organizations/"
-const FAMOCO_API_TOKEN = process.node.FAMOCO_API_TOKEN
-const FAMOCO_ORGANIZATION_ID = process.node.FAMOCO_ORGANIZATION_ID
+const FAMOCO_API_TOKEN = process.env.FAMOCO_API_TOKEN
+const FAMOCO_ORGANIZATION_ID = process.env.FAMOCO_ORGANIZATION_ID
 
 try {
   const apk = core.getInput("apk", {
