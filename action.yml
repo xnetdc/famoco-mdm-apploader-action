@@ -2,14 +2,10 @@ name: 'Famoco MDM Apploader'
 description: 'Uploads an apk to the Famoco MDM'
 author: 'Sina Khelil'
 inputs:
-  name:  # id of input
+  apk:  # id of input
     description: 'name of the apk'
     required: true
     default: 'android.release.apk'
-  path:  # id of input
-    description: 'path to the apk'
-    required: true
-    default: 'app/build/outputs/release/apk'
 outputs:
   time: # id of output
     description: 'The time of execution'
