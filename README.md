@@ -14,13 +14,9 @@ This action uploads an apk to the Famoco MDM
 
 ## Inputs
 
-### `name`
+### `apk`
 
-**Required** The name of the apk.
-
-### `path`
-
-**Required** The path to the apk.
+**Required** The name and path of the apk.
 
 ## Outputs
 
@@ -30,10 +26,9 @@ The time it was executed.
 
 ## Example usage
 
-    -uses: actions/famoco-mdm-apploader-action@v1
+    -uses: actions/famoco-mdm-apploader-action@v1.4.2
      env:
        FAMOCO_API_TOKEN: ${{ secrets.FAMOCO_API_TOKEN }}
        FAMOCO_ORGANIZATION_ID: ${{ secrets.FAMOCO_ORGANIZATION_ID }}
      with:
-       name: android.release.apk
-       path: app/build/outputs/release/apk
+       apk: app/build/outputs/release/apkandroid.release.apk
