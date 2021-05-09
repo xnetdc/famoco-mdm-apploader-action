@@ -1,6 +1,6 @@
 {
   "name": "famoco-mdm-apploader-action",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Famoco MDM app uploader",
   "main": "dist/index.js",
   "scripts": {
