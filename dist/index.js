@@ -4685,6 +4685,8 @@ try {
 
       axios
         .post(`${BASE_FAMOCO_URL}${FAMOCO_ORGANIZATION_ID}/applications/`, form, {
+          maxContentLength: Infinity,
+          maxBodyLength: Infinity,
           headers: {
             Authorization: `Bearer ${FAMOCO_API_TOKEN}`,
             ...formHeaders,
