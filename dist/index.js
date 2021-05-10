@@ -4680,7 +4680,7 @@ try {
     if (err) {
       core.setFailed(`${apk} ${err.code === "ENOENT" ? "does not exist" : "is read-only"}`)
     } else {
-      form.append("file", fs.createReadStream(apk))
+      form.append("apk", fs.createReadStream(apk))
       const formHeaders = form.getHeaders()
 
       axios
@@ -4693,14 +4693,19 @@ try {
           },
         })
         .then((resp) => {
-          if (resp.statusText === "OK") {
-            core.info(`*SUCCESS:* Version *${resp.data.package_version_name}* uploaded to MDM`)
-          } else {
-            core.setFailed(`*FAILED:* Upload to MDM Failed: *${resp.data.errors.apk[0]}`)
-          }
+          core.info(`*SUCCESS:* Version *${resp.data.package_version_name}* uploaded to MDM`)
         })
         .catch((err) => {
-          core.setFailed(err)
+          if (error.response) {
+            core.error("RESPONSE", error.response.data)
+            core.error(error.response.status)
+            core.error(error.response.headers)
+          } else if (error.request) {
+            core.error("REQUEST", error.request)
+          } else {
+            core.error("Error", error.message)
+          }
+          core.setFailed(error.config)
         })
     }
   })
