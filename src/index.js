@@ -31,7 +31,7 @@ try {
         .then((resp) => {
           core.info(`*SUCCESS:* Version *${resp.data.package_version_name}* uploaded to MDM`)
         })
-        .catch((err) => {
+        .catch((error) => {
           if (error.response) {
             core.error("RESPONSE", error.response.data)
             core.error(error.response.status)
